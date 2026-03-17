@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amrutha Vilas – Kukatpally, Hyderabad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Variables ── */
+    :root {
+      --orange: #f97316;
+      --red:    #dc2626;
+      --yellow: #facc15;
+      --amber:  #fb923c;
+      --dark:   #1c0a00;
+      --text:   #3b1a04;
+      --light:  #fff8f0;
+      --card:   #ffffff;
+      --muted:  #7a4f2d;
+      --radius: 18px;
+      --nav-h:  64px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      padding-bottom: var(--nav-h);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ── Typography ── */
+    .display { font-family: 'Playfair Display', serif; }
+
+    /* ── Sections ── */
+    section { padding: 52px 20px 40px; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ══════════════════════════════════
+       TOP HEADER (desktop/sticky)
+    ══════════════════════════════════ */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+      height: 52px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .top-header .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--yellow);
+      letter-spacing: .02em;
+    }
+    .top-header .brand span { color: var(--orange); }
+    .top-header .header-cta {
+      display: flex; gap: 8px;
+    }
+    .top-header .header-cta a {
+      font-size: .75rem; font-weight: 800;
+      padding: 5px 12px; border-radius: 30px;
+      background: var(--orange); color: #fff;
+      transition: background .2s;
+    }
+    .top-header .header-cta a:hover { background: var(--red); }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    #home {
+      padding: 0;
+      background: linear-gradient(160deg, #1c0a00 0%, #7c1a00 55%, #dc2626 100%);
+      min-height: 90vh;
+      display: flex; flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    /* decorative circles */
+    #home::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(250,204,21,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #home::after {
+      content: '';
+      position: absolute; bottom: 40px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249,115,22,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      flex: 1;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 52px 24px 28px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      font-size: .72rem; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 30px;
+      margin-bottom: 16px;
+      width: fit-content;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 10vw, 3.6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero-title span { color: var(--yellow); }
+    .hero-tagline {
+      font-size: 1.05rem; font-weight: 700;
+      color: rgba(255,255,255,.8);
+      margin-top: 10px; margin-bottom: 30px;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: .9rem;
+      padding: 12px 20px; border-radius: 40px;
+      border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:active { transform: scale(.96); }
+    .btn-primary { background: var(--yellow); color: var(--dark); box-shadow: 0 4px 18px rgba(250,204,21,.4); }
+    .btn-primary:hover { box-shadow: 0 6px 24px rgba(250,204,21,.55); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-green { background: #25d366; color: #fff; }
+
+    /* food image cards in hero */
+    .hero-foods {
+      display: flex; gap: 12px;
+      padding: 24px 20px 40px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .hero-foods::-webkit-scrollbar { display: none; }
+    .food-card {
+      flex: 0 0 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+      animation: fadeUp .7s .4s ease both;
+    }
+    .food-card img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .food-card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      color: #fff; font-weight: 800; font-size: .85rem;
+      padding: 40px 12px 10px;
+    }
+
+    /* ══════════════════════════════════
+       DAILY OFFERS
+    ══════════════════════════════════ */
+    .offers-strip {
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      padding: 14px 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .offers-inner {
+      display: flex; gap: 32px;
+      animation: ticker 18s linear infinite;
+      white-space: nowrap;
+    }
+    .offer-item {
+      color: #fff; font-weight: 800; font-size: .88rem;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .offer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════
+       ABOUT
+    ══════════════════════════════════ */
+    #about { background: #fff; }
+    .about-desc {
+      font-size: 1rem; line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .service-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 18px 10px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .service-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(249,115,22,.15);
+    }
+    .service-icon {
+      font-size: 2rem; margin-bottom: 8px;
+      display: block;
+    }
+    .service-name {
+      font-weight: 800; font-size: .85rem;
+      color: var(--text);
+    }
+
+    .stats-row {
+      display: flex; gap: 12px;
+      margin-top: 28px;
+    }
+    .stat-box {
+      flex: 1; background: linear-gradient(135deg, var(--orange), var(--red));
+      border-radius: var(--radius);
+      padding: 18px 10px; text-align: center;
+      color: #fff;
+    }
+    .stat-num { font-family: 'Playfair Display',serif; font-size: 1.8rem; font-weight: 900; }
+    .stat-label { font-size: .75rem; font-weight: 700; opacity: .88; }
+
+    /* ══════════════════════════════════
+       MENU
+    ══════════════════════════════════ */
+    #menu { background: var(--light); }
+    .menu-tabs {
+      display: flex; gap: 8px;
+      overflow-x: auto; scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 24px;
+    }
+    .menu-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex: 0 0 auto;
+      font-family: 'Nunito',sans-serif;
+      font-weight: 800; font-size: .82rem;
+      padding: 8px 18px; border-radius: 30px;
+      border: 2px solid var(--orange);
+      background: transparent; color: var(--orange);
+      cursor: pointer; transition: all .2s;
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--orange); color: #fff;
+    }
+    .menu-grid { display: flex; flex-direction: column; gap: 12px; }
+    .menu-item {
+      display: flex; gap: 14px; align-items: center;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      transition: box-shadow .2s;
+    }
+    .menu-item:hover { box-shadow: 0 4px 20px rgba(249,115,22,.15); }
+    .menu-emoji { font-size: 2.2rem; flex-shrink: 0; }
+    .menu-info { flex: 1; }
+    .menu-name { font-weight: 800; font-size: 1rem; color: var(--text); }
+    .menu-desc { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+    .menu-price {
+      font-family: 'Inter',serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .menu-category { display: none; }
+    .menu-category.visible { display: flex; flex-direction: column; gap: 12px; }
+
+    /* ══════════════════════════════════
+       GALLERY
+    ══════════════════════════════════ */
+    #gallery { background: #fff; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .gallery-cell {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      transition: transform .2s;
+      position: relative;
+    }
+    .gallery-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-cell:hover { transform: scale(1.04); }
+    .gallery-cell:first-child { 
+      grid-column: span 2; 
+      aspect-ratio: 2/1;
+    }
+
+    /* ══════════════════════════════════
+       REVIEWS
+    ══════════════════════════════════ */
+    #reviews { background: var(--light); }
+    .rating-banner {
+      background: linear-gradient(135deg, var(--dark), #7c1a00);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .big-rating {
+      font-family: 'Playfair Display',serif;
+      font-size: 3.5rem; font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .stars { color: var(--yellow); font-size: 1.2rem; margin: 6px 0; letter-spacing: 2px; }
+    .rating-count { font-size: .85rem; opacity: .7; }
+    .reviews-list { display: flex; flex-direction: column; gap: 14px; }
+    .review-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      border-left: 4px solid var(--orange);
+    }
+    .review-card.negative { border-left-color: #64748b; }
+    .review-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 800; font-size: .9rem; }
+    .review-stars { font-size: .8rem; color: var(--yellow); }
+    .review-text { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ══════════════════════════════════
+       CONTACT
+    ══════════════════════════════════ */
+    #contact { background: #fff; }
+    .contact-info {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,.07);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-icon {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: .9rem; flex-shrink: 0;
+    }
+    .contact-label { font-size: .72rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+    .contact-value { font-weight: 700; font-size: .95rem; }
+    .contact-actions {
+      display: flex; gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .contact-actions .btn { flex: 1; justify-content: center; }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    }
+    .map-wrap iframe { width: 100%; height: 240px; border: none; display: block; }
+
+    /* ══════════════════════════════════
+       BOTTOM NAV
+    ══════════════════════════════════ */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--dark);
+      display: flex; align-items: stretch;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.35);
+    }
+    .nav-item {
+      flex: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 3px;
+      color: rgba(255,255,255,.5);
+      font-size: .65rem; font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: color .2s;
+      border: none; background: none;
+    }
+    .nav-item i { font-size: 1.2rem; }
+    .nav-item.active, .nav-item:hover { color: var(--yellow); }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      font-size: .8rem;
+      padding: 20px;
+    }
+    footer span { color: var(--yellow); }
+
+    /* ══════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (min-width: 640px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .menu-grid { display: grid; grid-template-columns: 1fr 1fr; }
+      .menu-category.visible { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-cell:first-child { grid-column: span 2; }
+    }
+    @media (min-width: 900px) {
+      body { max-width: 480px; margin: 0 auto; }
+      .bottom-nav { max-width: 480px; left: 50%; transform: translateX(-50%); }
+      .top-header { max-width: 480px; left: 50%; transform: translateX(-50%); right: auto; width: 480px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Top Header ── -->
+<header class="top-header">
+  <div class="brand display">Amrutha <span>Vilas</span></div>
+  <div class="header-cta">
+    <a href="tel:+919876543210"><i class="fa fa-phone"></i> Call</a>
+    <a href="https://wa.me/919876543210" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero-content">
+    <span class="hero-badge"> :📍🍽️ Kukatpally's Favourite</span>
+    <h1 class="hero-title display">Amrutha<br /><span>Vilas</span></h1>
+    <p class="hero-tagline">🍛 Affordable &amp; 🍗 Tasty Food</p>
+    <div class="hero-actions">
+      <a href="tel:+919876543210" class="btn btn-primary"><i class="fa fa-phone"></i> Call Us</a>
+      <a href="#contact" class="btn btn-outline"><i class="fa fa-map-marker-alt"></i> Directions</a>
+      <a href="https://wa.me/919876543210?text=Hi%2C+I+want+to+order+food!" target="_blank" class="btn btn-outline"><i class="fa fa-shopping-bag"></i> Order</a>
+    </div>
+  </div>
+
+  <!-- Food Highlights with Real Images -->
+  <div class="hero-foods">
+    <div class="food-card">
+      <img src="./images/dumbiryani.png" alt="Hyderabadi Biryani" loading="lazy">
+      <div class="food-card-label">Hyderabadi Biryani</div>
+    </div>
+    <div class="food-card">
+      <img src="./images/chickenfriderice.png" alt=" chicken Fried Rice" loading="lazy">
+      <div class="food-card-label"> chicken Fried Rice</div>
+    </div>
+    <div class="food-card">
+      <img src="./images/chicken-schezwan-noodles.png" alt="Schezwan Noodles" loading="lazy">
+      <div class="food-card-label"> chicken Schezwan Noodles</div>
+    </div>
+    <div class="food-card">
+      <img src="./images/ckicken65.png" alt="Chicken Starters" loading="lazy">
+      <div class="food-card-label">Chicken Starters</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Daily Offers Ticker ── -->
+<div class="offers-strip">
+  <div class="offers-inner" id="ticker">
+    <div class="offer-item"><span class="offer-dot"></span> Biryani + Cold Drink @ ₹129 — Today Only!</div>
+    <div class="offer-item"><span class="offer-dot"></span>🍜 Noodles Combo — 2 plates ₹99</div>
+    <div class="offer-item"><span class="offer-dot"></span>🕐 Lunch Special 12–3 PM: 20% OFF all rice dishes</div>
+    <div class="offer-item"><span class="offer-dot"></span>📦 Free Delivery above ₹200 within 3 km</div>
+    <div class="offer-item"><span class="offer-dot"></span>🔥 Biryani + Cold Drink @ ₹129 — Today Only!</div>
+    <div class="offer-item"><span class="offer-dot"></span>🍜 Noodles Combo — 2 plates ₹99</div>
+    <div class="offer-item"><span class="offer-dot"></span>🕐 Lunch Special 12–3 PM: 20% OFF all rice dishes</div>
+    <div class="offer-item"><span class="offer-dot"></span>📦 Free Delivery above ₹200 within 3 km</div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <h2 class="section-title display">About Us</h2>
+  <p class="section-sub">Who we are &amp; what we do</p>
+  <p class="about-desc">
+    Amrutha Vilas is Kukatpally's go-to spot for <strong>Delicious, home-style meals</strong> at pocket-friendly prices. Started by a local family, we serve students, office-goers and families who want a satisfying meal without breaking the bank. Every dish is freshly prepared with love and the right spices. 🌶️
+  </p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🍽️</span>
+      <span class="service-name">Dine-in</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛍️</span>
+      <span class="service-name">Takeaway</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛵</span>
+      <span class="service-name">Delivery</span>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years Open</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Daily Orders</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">4.1⭐</div>
+      <div class="stat-label">Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <h2 class="section-title display">Our Menu</h2>
+  <p class="section-sub">Fresh, hot &amp; budget-friendly</p>
+
+  <div class="menu-tabs" role="tablist">
+    <button class="tab-btn active" onclick="showCategory('biryani', this)">🍛 Biryani</button>
+    <button class="tab-btn" onclick="showCategory('rice', this)">🍚 Fried Rice</button>
+    <button class="tab-btn" onclick="showCategory('noodles', this)">🍜 Noodles</button>
+    <button class="tab-btn" onclick="showCategory('starters', this)">🍗 Starters</button>
+  </div>
+
+  <!-- Biryani -->
+  <div class="menu-category visible" id="cat-biryani">
+    <div class="menu-item">
+      <span class="menu-emoji">🍛</span>
+      <div class="menu-info">
+        <div class="menu-name">Chicken Biryani</div>
+        <div class="menu-desc">Dum-style, aromatic basmati rice with tender chicken</div>
+      </div>
+      <div class="menu-price">₹119</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥩</span>
+      <div class="menu-info">
+        <div class="menu-name">chicken fry Biryani</div>
+        <div class="menu-desc">Slow-cooked chicken, saffron-infused rice</div>
+      </div>
+      <div class="menu-price">₹139</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥚</span>
+      <div class="menu-info">
+        <div class="menu-name">Egg Biryani</div>
+        <div class="menu-desc">Spiced basmati with boiled eggs &amp; fried onions</div>
+      </div>
+      <div class="menu-price">₹69</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥦</span>
+      <div class="menu-info">
+        <div class="menu-name">Veg Biryani</div>
+        <div class="menu-desc">Mixed vegetables, fresh spices &amp; mint chutney</div>
+      </div>
+      <div class="menu-price">₹59</div>
+    </div>
+  </div>
+
+  <!-- Fried Rice -->
+  <div class="menu-category" id="cat-rice">
+    <div class="menu-item">
+      <span class="menu-emoji">🍚</span>
+      <div class="menu-info">
+        <div class="menu-name">Chicken Fried Rice</div>
+        <div class="menu-desc">Wok-tossed with egg, soy &amp; fresh chicken</div>
+      </div>
+      <div class="menu-price">₹89</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥚</span>
+      <div class="menu-info">
+        <div class="menu-name">Egg Fried Rice</div>
+        <div class="menu-desc">Classic scrambled egg fried rice, light &amp; filling</div>
+      </div>
+      <div class="menu-price">₹65</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🌶️</span>
+      <div class="menu-info">
+        <div class="menu-name">Schezwan Fried Rice</div>
+        <div class="menu-desc">Spicy red schezwan sauce, crunchy veggies</div>
+      </div>
+      <div class="menu-price">₹79</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥦</span>
+      <div class="menu-info">
+        <div class="menu-name">Veg Fried Rice</div>
+        <div class="menu-desc">Tossed seasonal vegetables, pepper &amp; soy</div>
+      </div>
+      <div class="menu-price">₹55</div>
+    </div>
+  </div>
+
+  <!-- Noodles -->
+  <div class="menu-category" id="cat-noodles">
+    <div class="menu-item">
+      <span class="menu-emoji">🍜</span>
+      <div class="menu-info">
+        <div class="menu-name">Chicken Noodles</div>
+        <div class="menu-desc">Stir-fried noodles with chicken &amp; spring onion</div>
+      </div>
+      <div class="menu-price">₹85</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🌶️</span>
+      <div class="menu-info">
+        <div class="menu-name">Schezwan Noodles</div>
+        <div class="menu-desc">Fiery schezwan sauce, veggies &amp; noodles</div>
+      </div>
+      <div class="menu-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥚</span>
+      <div class="menu-info">
+        <div class="menu-name">Egg Hakka Noodles</div>
+        <div class="menu-desc">Hakka-style, tossed with egg &amp; sesame</div>
+      </div>
+      <div class="menu-price">₹65</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🥕</span>
+      <div class="menu-info">
+        <div class="menu-name">Veg Noodles</div>
+        <div class="menu-desc">Colorful veggies, light soy &amp; garlic</div>
+      </div>
+      <div class="menu-price">₹55</div>
+    </div>
+  </div>
+
+  <!-- Starters -->
+  <div class="menu-category" id="cat-starters">
+    <div class="menu-item">
+        <span class="menu-emoji">🍗</span>
+       <!-- <img src="./images/chickenfry.png" class="rounded mb-2 w-full" /> -->
+      <div class="menu-info">
+        <div class="menu-name">Chicken 65</div>
+        <div class="menu-desc">Crispy deep-fried chicken, curry leaves &amp; chilli</div>
+      </div>
+      <div class="menu-price">₹110</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🍖</span>
+      <div class="menu-info">
+        <div class="menu-name">Chicken Lollipop (6 pcs)</div>
+        <div class="menu-desc">Marinated, fried lollipops with mint dip</div>
+      </div>
+      <div class="menu-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🧅</span>
+      <div class="menu-info">
+        <div class="menu-name">Gobi Manchurian</div>
+        <div class="menu-desc">Crispy cauliflower in Indo-Chinese sauce</div>
+      </div>
+      <div class="menu-price">₹75</div>
+    </div>
+    <div class="menu-item">
+      <span class="menu-emoji">🧄</span>
+      <div class="menu-info">
+        <div class="menu-name">Paneer Tikka</div>
+        <div class="menu-desc">Grilled cottage cheese, bell peppers &amp; spices</div>
+      </div>
+      <div class="menu-price">₹95</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY with Real Images ── -->
+<section id="gallery">
+  <h2 class="section-title display">Photo Gallery</h2>
+  <p class="section-sub">A peek into our kitchen &amp; ambiance</p>
+  <div class="gallery-grid">
+    <div class="gallery-cell">
+      <img src="./images/dumbiryani.png" alt="Biryani" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/chickenfriderice.png" alt="Fried Rice" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/noodels.png" alt="Noodles" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/chickenfriderice.png" alt="Chickenfride rice" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/dumbiryani.png" alt="Biryani Serving" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/chicken-schezwan-noodles.png" alt="Schezwan Noodles" loading="lazy">
+    </div>
+    <div class="gallery-cell">
+      <img src="./images/chickenfry.png" alt="Indian Thali" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section id="reviews">
+  <h2 class="section-title display">Reviews</h2>
+  <p class="section-sub">What our customers say</p>
+
+  <div class="rating-banner">
+    <div class="big-rating">4.1</div>
+    <div class="stars">★★★★☆</div>
+    <div class="rating-count">Based on 380+ Google reviews</div>
+  </div>
+
+  <div class="reviews-list">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Ravi Kumar</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="review-text">Best biryani in Kukatpally! The portion size is huge and very affordable. The chicken was tender and perfectly spiced. Definitely coming back! 🙌</p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sneha Reddy</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="review-text">Me and my college friends order from here almost every week. The noodles combo is a steal at ₹99. Quick delivery and always hot! 🍜</p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Arjun Mehta</div>
+          <div class="review-stars">★★★★☆</div>
+        </div>
+      </div>
+      <p class="review-text">Solid food at honest prices. Chicken 65 is crispy and well-seasoned. The place is small but very clean. Perfect for a quick lunch.</p>
+    </div>
+
+    <div class="review-card negative">
+      <div class="review-header">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#64748b,#475569)">P</div>
+        <div>
+          <div class="review-name">Priya S.</div>
+          <div class="review-stars" style="color:#94a3b8">★★★☆☆</div>
+        </div>
+      </div>
+      <p class="review-text">Food is good but the wait time during peak hours can be long. Had to wait 30 min for takeaway on a Sunday evening. Taste wise no complaints though.</p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Mohammed Farhan</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="review-text">Amrutha Vilas never disappoints. The mutton biryani is absolutely worth it at ₹139. Feels like home-cooked food. Highly recommend! 🥩🍛</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <h2 class="section-title display">Find Us</h2>
+  <p class="section-sub">We're right here in Kukatpally</p>
+
+  <div class="contact-info">
+    <div class="contact-row">
+      <div class="contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+      <div>
+        <div class="contact-label">Address</div>
+        <div class="contact-value">Near KPHB Metro Station,<br/>Kukatpally, Hyderabad – 500072</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon"><i class="fa fa-clock"></i></div>
+      <div>
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">Mon–Sun: 10:00 AM – 10:30 PM</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon"><i class="fa fa-phone"></i></div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+91 9133729726</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-actions">
+    <a href="tel:+91 9133729726" class="btn btn-primary"><i class="fa fa-phone"></i> Call Now</a>
+    <a href="https://wa.me/919133729726?text=Hi%2C+I+want+to+order+food!" target="_blank" class="btn btn-green"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+
+  <!-- Google Maps Embed — Kukatpally, Hyderabad -->
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.72498148285!2d78.38456!3d17.48591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91a2b2b2b2b3%3A0xabc123!2sKukatpally%2C+Hyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Amrutha Vilas Location Map">
+    </iframe>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  Made with ❤️ in <span>Hyderabad</span> · © 2025 Amrutha Vilas
+</footer>
+<nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+  <button class="nav-item active" onclick="scrollSection('#home', this)">
+    <i class="fa fa-home"></i>Home
+  </button>
+  <button class="nav-item active" onclick="scrollSection('#about', this)">
+    <i class="fa fa-info-circle"></i>About
+  </button>
+  <button class="nav-item" onclick="scrollSection('#menu', this)">
+    <i class="fa fa-utensils"></i>Menu
+  </button>
+  <button class="nav-item" onclick="scrollSection('#reviews', this)">
+    <i class="fa fa-star"></i>Reviews
+  </button>
+  <button class="nav-item" onclick="scrollSection('#contact', this)">
+    <i class="fa fa-map-marker-alt"></i>Contact
+  </button>
+</nav>
+
+<script>
+  /* ── Smooth scroll + active nav ── */
+  function scrollSection(id, btn) {
+  document.querySelector(id).scrollIntoView({
+    behavior: "smooth"
+  });
+  
+
+  document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+  /* ── Active nav on scroll ── */
+  const sections = ['home','about','menu','gallery','reviews','contact'];
+  const navBtns  = document.querySelectorAll('.nav-item');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 80) current = id;
+    });
+    navBtns.forEach((btn, i) => {
+      const ids = ['home','about','menu','reviews','contact'];
+      btn.classList.toggle('active', ids[i] === current);
+    });
+  }, { passive: true });
+
+  /* ── Menu tabs ── */
+  function showCategory(id, btn) {
+    document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('visible'));
+    document.getElementById('cat-' + id).classList.add('visible');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
